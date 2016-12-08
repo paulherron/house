@@ -19,7 +19,6 @@ h1 {
 	font-weight: normal;
 	font-family: 'Raleway', sans-serif;
 	color: #999;
-	background: url(/img/paul_herron.png) no-repeat right;
 	background-size: 226px 226px;
 }
 
@@ -43,6 +42,26 @@ table {
 
 p.more {
 	margin-top: 32px;
+}
+
+a.action {
+	display: inline-block;
+	padding: 8px;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.positive {
+	background: #4cd459;
+}
+
+.negative {
+	background: #d44c4d;
+}
+
+.secondary-status {
+	font-size: smaller;
+	color: #666;
 }
 
 footer {
