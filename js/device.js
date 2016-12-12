@@ -1,5 +1,6 @@
 $(document).ready(function() {
-	refreshStatus('electric-blanket', false);
+	refreshStatus('electric-blanket');
+	refreshStatus('front-door-light');
 
 	$('.action').click(function() {
 		var url = $(this).attr('data-url');
@@ -7,7 +8,6 @@ $(document).ready(function() {
 
 		$.getJSON(url, function(data) {
 			var statusMessage = data['output'];
-			$('.secondary-status').html(statusMessage);
 
 			if (data['action'] == 'on') {
 				$(actionLink).parent().prev()
@@ -19,14 +19,30 @@ $(document).ready(function() {
 					.removeClass('positive');
 			}
 
-			refreshStatus($(actionLink).parent().parent().attr('id'), true);
+			refreshStatus($(actionLink).parent().parent().attr('id'));
 		});
 	});
 });
 
-function refreshStatus(device, fade) {
-	$.getJSON('device.php?device=' + device, function(data) {
-		var statusMessage = 'Turned ' + data['lastCommand'] + ' at ' + data['lastCommandTime'];
+function refreshStatus(device) {
+	var $tableRow = $('#' + device);
+
+	// Extract the status URL if it was defined in a data attribute,
+	// or use a default one.
+	var statusUrl = $tableRow.attr('data-url');
+	if (!statusUrl) {
+		statusUrl = 'device.php?device=' + device;
+	}
+
+	// Extract the status template if it was defined in a data attribute.
+	var statusTemplate = $tableRow.attr('data-status-template');
+
+	if (!statusTemplate) {
+		return false;
+	}
+
+	$.getJSON(statusUrl, function(data) {
+		var statusMessage = eval('`' + statusTemplate + '`');
 		$('#' + device + ' .status').html(statusMessage);
 	});
 }
