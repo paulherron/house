@@ -31,14 +31,11 @@ function refreshStatus(device) {
 	// Extract the status URL if it was defined in a data attribute,
 	// or use a default one.
 	var statusUrl = $tableRow.attr('data-url');
-	if (!statusUrl) {
-		statusUrl = 'device.php?device=' + device;
-	}
 
 	// Extract the status template if it was defined in a data attribute.
 	var statusTemplate = $tableRow.attr('data-status-template');
 
-	if (!statusTemplate) {
+	if (!statusUrl || !statusTemplate) {
 		return false;
 	}
 
