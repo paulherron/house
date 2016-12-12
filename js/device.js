@@ -1,6 +1,7 @@
 $(document).ready(function() {
 	refreshStatus('electric-blanket');
 	refreshStatus('front-door-light');
+	refreshStatus('attic-temperature');
 
 	$('.action').click(function() {
 		var url = $(this).attr('data-url');
