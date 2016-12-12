@@ -1,7 +1,13 @@
 $(document).ready(function() {
-	refreshStatus('electric-blanket');
-	refreshStatus('front-door-light');
-	refreshStatus('attic-temperature');
+
+	$('table#devices tr').each(function() {
+		var deviceName = $(this).attr('id');
+		if (!deviceName) {
+			return;
+		}
+
+		refreshStatus(deviceName);
+	});
 
 	$('.action').click(function() {
 		var url = $(this).attr('data-url');
