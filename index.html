@@ -30,12 +30,20 @@
 				<td class="status">?</td>
 				<td></td>
 			</tr>
-			<tr id="electric-blanket" data-url="http://192.168.2.170" data-status-template="Turned ${data.lastCommand} at ${data.lastCommandTime}">
-				<td>Electric blanket</td>
+			<tr id="electric-blanket-left" data-url="http://192.168.2.170?switch=1" data-status-template="Turned ${data.lastCommand} at ${data.lastCommandTime}">
+				<td>Electric blanket (left)</td>
 				<td class="status">?</td>
 				<td>
-					<a class="action negative" data-url="http://192.168.2.170/index.php?action=off" href="#">Turn off</a>
-					<a class="action positive" data-url="http://192.168.2.170/index.php?action=on" href="#">Turn on</a>
+					<a class="action negative" data-url="http://192.168.2.170/index.php?switch=1&action=off" href="#">Turn off</a>
+					<a class="action positive" data-url="http://192.168.2.170/index.php?switch=1&action=on" href="#">Turn on</a>
+				</td>
+			</tr>
+			<tr id="electric-blanket-right" data-url="http://192.168.2.170?switch=2" data-status-template="Turned ${data.lastCommand} at ${data.lastCommandTime}">
+				<td>Electric blanket (right)</td>
+				<td class="status">?</td>
+				<td>
+					<a class="action negative" data-url="http://192.168.2.170/index.php?switch=2&action=off" href="#">Turn off</a>
+					<a class="action positive" data-url="http://192.168.2.170/index.php?switch=2&action=on" href="#">Turn on</a>
 				</td>
 			</tr>
 			<tr>
