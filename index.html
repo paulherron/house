@@ -20,17 +20,17 @@
 				<th>Status</th>
 				<th>Actions</th>
 			</tr>
-			<tr id="front-door-light" data-url="http://raspberrypi-0.local:5000" data-status-template="Turned ${data['front-door'] ? 'on' : 'off'}">
+			<tr id="front-door-light" data-url="http://192.168.2.171:5000" data-status-template="Turned ${data['front-door'] ? 'on' : 'off'}">
 				<td>Front door light</td>
 				<td class="status">?</td>
 				<td></td>
 			</tr>
-			<tr id="attic-temperature" data-url="http://raspberrypi-b.local:8080" data-status-template="${data.temperature}&deg; (logged ${data.date})">
+			<tr id="attic-temperature" data-url="http://192.168.2.170:8080" data-status-template="${data.temperature}&deg; (logged ${data.date})">
 				<td>Attic temperature</td>
 				<td class="status">?</td>
 				<td></td>
 			</tr>
-			<tr id="electric-blanket" data-url="http://raspberrypi-b.local/" data-status-template="Turned ${data.lastCommand} at ${data.lastCommandTime}">
+			<tr id="electric-blanket" data-url="http://192.168.2.170" data-status-template="Turned ${data.lastCommand} at ${data.lastCommandTime}">
 				<td>Electric blanket</td>
 				<td class="status">?</td>
 				<td>
@@ -57,5 +57,6 @@
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 		<script src="js/device.js"></script>
+		<script src="js/ping.js"></script>
 	</body>
 </html>
