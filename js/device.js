@@ -28,6 +28,8 @@ $(document).ready(function() {
 
 			refreshStatus($(actionLink).parent().parent().attr('id'));
 		});
+
+		return false;
 	});
 });
 
