@@ -25,7 +25,7 @@
 				<td class="status">?</td>
 				<td></td>
 			</tr>
-			<tr id="attic-temperature" data-url="http://192.168.2.170:8080" data-status-template="${data.temperature}&deg; (logged ${data.date})">
+			<tr id="attic-temperature" data-url="http://192.168.2.170:8080" data-status-template="${data.temperature}&deg; (logged ${data.isoDate})">
 				<td>Attic temperature</td>
 				<td class="status">?</td>
 				<td></td>
@@ -34,8 +34,8 @@
 				<td>Electric blanket</td>
 				<td class="status">?</td>
 				<td>
-					<a class="action negative" data-url="http://raspberrypi-b.local/index.php?action=off">Turn off</a>
-					<a class="action positive" data-url="http://raspberrypi-b.local/index.php?action=on">Turn on</a>
+					<a class="action negative" data-url="http://192.168.2.170/index.php?action=off">Turn off</a>
+					<a class="action positive" data-url="http://192.168.2.170/index.php?action=on">Turn on</a>
 				</td>
 			</tr>
 			<tr>
