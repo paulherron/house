@@ -30,6 +30,14 @@
 				<td class="status">?</td>
 				<td></td>
 			</tr>
+			<tr id="attic-blinds" data-url="http://192.168.2.48:5000" data-status-template="Put ${data.lastCommand} at ${data.lastCommandTime}">
+				<td>Attic blinds</td>
+				<td class="status">?</td>
+				<td>
+					<a class="action negative" data-url="http://192.168.2.48:5000/down" href="#">Down</a>
+					<a class="action positive" data-url="http://192.168.2.48:5000/up" href="#">Up</a>
+				</td>
+			</tr>
 			<tr id="electric-blanket-left" data-url="http://192.168.2.170?switch=1" data-status-template="Turned ${data.lastCommand} at ${data.lastCommandTime}">
 				<td>Electric blanket (left)</td>
 				<td class="status">?</td>

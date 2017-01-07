@@ -16,7 +16,7 @@ $(document).ready(function() {
 		$.getJSON(url, function(data) {
 			var statusMessage = data['output'];
 
-			if (data['action'] == 'on') {
+			if ($.inArray(data['lastCommand'], ['on', 'up', 'true']) > -1) {
 				$(actionLink).parent().prev()
 					.addClass('positive')
 					.removeClass('negative');
