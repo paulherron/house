@@ -67,6 +67,10 @@ a.action {
 	background: #d44c4d;
 }
 
+.neutral {
+	background: #fdc354;
+}
+
 .secondary-status {
 	font-size: smaller;
 	color: #666;
