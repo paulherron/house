@@ -76,10 +76,13 @@
 					<a class="action positive" data-url="http://192.168.2.172:5000/on" href="#">Turn on</a>
 				</td>
 			</tr>
-			<tr>
-				<td>Back gate</td>
-				<td>?</td>
-				<td></td>
+			<tr id="study-light" data-url="http://192.168.2.172:3000" data-status-template="Turned ${data.lastCommand} at ${data.lastCommandTime}">
+				<td>Study light</td>
+				<td class="status">?</td>
+				<td>
+					<a class="action negative" data-url="http://192.168.2.172:3000/off" href="#">Turn off</a>
+					<a class="action positive" data-url="http://192.168.2.172:3000/on" href="#">Turn on</a>
+				</td>
 			</tr>
 		</table>
 
