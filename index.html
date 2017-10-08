@@ -11,6 +11,11 @@
 
 		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Raleway:100&amp;v2" /> 
 		<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+		<script>
+			function formatTime(timestamp) {
+				return '<abbr title="' + moment(timestamp).format() + '">' + moment(timestamp).fromNow() + '</abbr>';
+			}
+		</script>
 	</head>
 	<body>
 		<h1>House status</h1>
@@ -26,12 +31,12 @@
 				<td class="status">?</td>
 				<td></td>
 			</tr>
-			<tr id="bedroom-temperature" data-url="http://192.168.2.170:8080" data-status-template="${data.temperature}&deg; (logged ${data.isoDate})">
+			<tr id="bedroom-temperature" data-url="http://192.168.2.170:8080" data-status-template="${data.temperature}&deg; ${formatTime(data.isoDate)}">
 				<td>Bedroom temperature</td>
 				<td class="status">?</td>
 				<td></td>
 			</tr>
-			<tr id="electric-blanket-left" data-url="http://192.168.2.170?switch=1" data-status-template="Turned ${data.lastCommand} at ${data.lastCommandTime}">
+			<tr id="electric-blanket-left" data-url="http://192.168.2.170?switch=1">
 				<td>Electric blanket (left)</td>
 				<td class="status">?</td>
 				<td>
@@ -39,7 +44,7 @@
 					<a class="action positive" data-url="http://192.168.2.170/index.php?switch=1&action=on" href="#">Turn on</a>
 				</td>
 			</tr>
-			<tr id="electric-blanket-right" data-url="http://192.168.2.170?switch=2" data-status-template="Turned ${data.lastCommand} at ${data.lastCommandTime}">
+			<tr id="electric-blanket-right" data-url="http://192.168.2.170?switch=2">
 				<td>Electric blanket (right)</td>
 				<td class="status">?</td>
 				<td>
@@ -47,7 +52,7 @@
 					<a class="action positive" data-url="http://192.168.2.170/index.php?switch=2&action=on" href="#">Turn on</a>
 				</td>
 			</tr>
-			<tr id="attic-blinds" data-url="http://192.168.2.48:5000" data-status-template="Put ${data.lastCommand} at ${data.lastCommandTime}">
+			<tr id="attic-blinds" data-url="http://192.168.2.48:5000" data-status-template="Put ${data.lastCommand} at ${formatTime(data.lastCommandTime)}">
 				<td>Attic blinds</td>
 				<td class="status">?</td>
 				<td>
@@ -55,7 +60,7 @@
 					<a class="action positive" data-url="http://192.168.2.48:5000/up" href="#">Up</a>
 				</td>
 			</tr>
-			<tr id="lounge-lights" data-url="http://192.168.2.200:5000" data-status-template="Turned ${data.lastCommand} at ${data.lastCommandTime}">
+			<tr id="lounge-lights" data-url="http://192.168.2.200:5000">
 				<td>Lounge lights</td>
 				<td class="status">?</td>
 				<td>
@@ -68,7 +73,7 @@
 					<a class="action neutral" data-url="http://192.168.2.200:5000/low" href="#">Turn low</a>
 				</td>
 			</tr>
-			<tr id="heating" data-url="http://192.168.2.172:5000" data-status-template="Turned ${data.lastCommand} at ${data.lastCommandTime}">
+			<tr id="heating" data-url="http://192.168.2.172:5000">
 				<td>Heating</td>
 				<td class="status">?</td>
 				<td>
@@ -76,7 +81,7 @@
 					<a class="action positive" data-url="http://192.168.2.172:5000/on" href="#">Turn on</a>
 				</td>
 			</tr>
-			<tr id="study-light" data-url="http://192.168.2.172:3000" data-status-template="Turned ${data.lastCommand} at ${data.lastCommandTime}">
+			<tr id="study-light" data-url="http://192.168.2.172:3000">
 				<td>Study light</td>
 				<td class="status">?</td>
 				<td>
@@ -87,6 +92,7 @@
 		</table>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js"></script>
 		<script src="js/device.js"></script>
 	</body>
 </html>

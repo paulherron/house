@@ -42,6 +42,9 @@ function refreshStatus(device) {
 
 	// Extract the status template if it was defined in a data attribute.
 	var statusTemplate = $tableRow.attr('data-status-template');
+	if (!statusTemplate) {
+		statusTemplate = 'Turned ${data.lastCommand} ${formatTime(data.lastCommandTime)}';
+	}
 
 	if (!statusUrl || !statusTemplate) {
 		return false;
