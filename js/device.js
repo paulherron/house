@@ -31,27 +31,31 @@ $(document).ready(function() {
 
 		return false;
 	});
+
+	Handlebars.registerHelper('relativeTime', function(dateTime, format) {
+		return moment(dateTime).fromNow();
+	});
 });
 
 function refreshStatus(device) {
 	var $tableRow = $('#' + device);
 
-	// Extract the status URL if it was defined in a data attribute,
-	// or use a default one.
+	// Extract the status URL if it was defined in a data attribute.
 	var statusUrl = $tableRow.attr('data-url');
-
-	// Extract the status template if it was defined in a data attribute.
-	var statusTemplate = $tableRow.attr('data-status-template');
-	if (!statusTemplate) {
-		statusTemplate = 'Turned ${data.lastCommand} ${formatTime(data.lastCommandTime)}';
-	}
-
-	if (!statusUrl || !statusTemplate) {
+	if (!statusUrl) {
 		return false;
 	}
 
+	// Extract the status template if it was defined in a data attribute,
+	// or use a default one.
+	var statusTemplate = $tableRow.attr('data-status-template');
+	if (!statusTemplate) {
+		statusTemplate = 'Turned {{lastCommand}} {{ relativeTime lastCommandTime }}';
+	}
+
 	$.getJSON(statusUrl, function(data) {
-		var statusMessage = eval('`' + statusTemplate + '`');
+		var template = Handlebars.compile(statusTemplate);
+		var statusMessage = template(data);
 		$('#' + device + ' .status').html(statusMessage);
 	});
 }

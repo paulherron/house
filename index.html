@@ -11,11 +11,6 @@
 
 		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Raleway:100&amp;v2" /> 
 		<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-		<script>
-			function formatTime(timestamp) {
-				return '<abbr title="' + moment(timestamp).format() + '">' + moment(timestamp).fromNow() + '</abbr>';
-			}
-		</script>
 	</head>
 	<body>
 		<h1>House status</h1>
@@ -26,12 +21,12 @@
 				<th>Status</th>
 				<th>Actions</th>
 			</tr>
-			<tr id="front-door-light" data-url="http://192.168.2.235:5000" data-status-template="Turned ${data['front-door'] ? 'on' : 'off'}">
+			<tr id="front-door-light" data-url="http://192.168.2.235:5000" data-status-template="Turned {{#if front-door}}on{{else}}off{{/if}}">
 				<td>Front door light</td>
 				<td class="status">?</td>
 				<td></td>
 			</tr>
-			<tr id="bedroom-temperature" data-url="http://192.168.2.170:8080" data-status-template="${data.temperature}&deg; ${formatTime(data.isoDate)}">
+			<tr id="bedroom-temperature" data-url="http://192.168.2.170:8080" data-status-template="{{temperature}}&deg; {{ relativeTime isoDate }}">
 				<td>Bedroom temperature</td>
 				<td class="status">?</td>
 				<td></td>
@@ -52,7 +47,7 @@
 					<a class="action positive" data-url="http://192.168.2.170/index.php?switch=2&action=on" href="#">Turn on</a>
 				</td>
 			</tr>
-			<tr id="attic-blinds" data-url="http://192.168.2.48:5000" data-status-template="Put ${data.lastCommand} at ${formatTime(data.lastCommandTime)}">
+			<tr id="attic-blinds" data-url="http://192.168.2.48:5000" data-status-template="Put {{ lastCommand }} at {{ relativeTime lastCommandTime }}">
 				<td>Attic blinds</td>
 				<td class="status">?</td>
 				<td>
@@ -93,6 +88,7 @@
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
 		<script src="js/device.js"></script>
 	</body>
 </html>
