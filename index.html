@@ -21,11 +21,6 @@
 				<th>Status</th>
 				<th>Actions</th>
 			</tr>
-			<tr id="front-door-light" data-url="http://192.168.2.235:5000" data-status-template="Turned {{#if front-door}}on{{else}}off{{/if}}">
-				<td>Front door light</td>
-				<td class="status">?</td>
-				<td></td>
-			</tr>
 			<tr id="bedroom-temperature" data-url="http://192.168.2.170:8080" data-status-template="{{temperature}}&deg; {{ relativeTime isoDate }}">
 				<td>Bedroom temperature</td>
 				<td class="status">?</td>
@@ -53,6 +48,22 @@
 				<td>
 					<a class="action negative" data-url="http://192.168.2.48:5000/down" href="#">Down</a>
 					<a class="action positive" data-url="http://192.168.2.48:5000/up" href="#">Up</a>
+				</td>
+			</tr>
+			<tr id="kitchen-speaker" data-url="http://192.168.2.172:3100">
+				<td>Kitchen speaker</td>
+				<td class="status">?</td>
+				<td>
+					<a class="action negative" data-url="http://192.168.2.172:3100/off?device=0" href="#">Off</a>
+					<a class="action positive" data-url="http://192.168.2.172:3100/on?device=0" href="#">On</a>
+				</td>
+			</tr>
+			<tr id="upstairs-bell" data-url="http://192.168.2.172:3100">
+				<td>Upstairs bell</td>
+				<td class="status">?</td>
+				<td>
+					<a class="action negative" data-url="http://192.168.2.172:3100/off?device=1" href="#">Off</a>
+					<a class="action positive" data-url="http://192.168.2.172:3100/on?device=1" href="#">On</a>
 				</td>
 			</tr>
 			<tr id="lounge-lights" data-url="http://192.168.2.200:5000">
@@ -83,6 +94,11 @@
 					<a class="action negative" data-url="http://192.168.2.172:3000/off" href="#">Turn off</a>
 					<a class="action positive" data-url="http://192.168.2.172:3000/on" href="#">Turn on</a>
 				</td>
+			</tr>
+			<tr id="front-door-light" data-url="http://192.168.2.235:5000" data-status-template="Turned {{#if front-door}}on{{else}}off{{/if}}">
+				<td>Front door light</td>
+				<td class="status">?</td>
+				<td></td>
 			</tr>
 		</table>
 
