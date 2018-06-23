@@ -33,7 +33,7 @@ $(document).ready(function() {
 	});
 
 	Handlebars.registerHelper('relativeTime', function(dateTime, format) {
-		return moment(dateTime).fromNow();
+		return moment(dateTime + 'Z').fromNow();
 	});
 });
 
