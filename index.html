@@ -21,25 +21,25 @@
 				<th>Status</th>
 				<th>Actions</th>
 			</tr>
-			<tr id="bedroom-temperature" data-url="http://192.168.2.170:8080" data-status-template="{{temperature}}&deg; {{ relativeTime isoDate }}">
+			<tr id="bedroom-temperature" data-url="http://192.168.2.163:8080" data-status-template="{{temperature}}&deg; {{ relativeTime isoDate }}">
 				<td>Bedroom temperature</td>
 				<td class="status">?</td>
 				<td></td>
 			</tr>
-			<tr id="electric-blanket-left" data-url="http://192.168.2.170?switch=1">
+			<tr id="electric-blanket-left" data-url="http://192.168.2.163?switch=1">
 				<td>Electric blanket (left)</td>
 				<td class="status">?</td>
 				<td>
-					<a class="action negative" data-url="http://192.168.2.170/index.php?switch=1&action=off" href="#">Turn off</a>
-					<a class="action positive" data-url="http://192.168.2.170/index.php?switch=1&action=on" href="#">Turn on</a>
+					<a class="action negative" data-url="http://192.168.2.163/index.php?switch=1&action=off" href="#">Turn off</a>
+					<a class="action positive" data-url="http://192.168.2.163/index.php?switch=1&action=on" href="#">Turn on</a>
 				</td>
 			</tr>
-			<tr id="electric-blanket-right" data-url="http://192.168.2.170?switch=2">
+			<tr id="electric-blanket-right" data-url="http://192.168.2.163?switch=2">
 				<td>Electric blanket (right)</td>
 				<td class="status">?</td>
 				<td>
-					<a class="action negative" data-url="http://192.168.2.170/index.php?switch=2&action=off" href="#">Turn off</a>
-					<a class="action positive" data-url="http://192.168.2.170/index.php?switch=2&action=on" href="#">Turn on</a>
+					<a class="action negative" data-url="http://192.168.2.163/index.php?switch=2&action=off" href="#">Turn off</a>
+					<a class="action positive" data-url="http://192.168.2.163/index.php?switch=2&action=on" href="#">Turn on</a>
 				</td>
 			</tr>
 			<tr id="attic-blinds" data-url="http://192.168.2.48:5000" data-status-template="Put {{ lastCommand }} at {{ relativeTime lastCommandTime }}">
